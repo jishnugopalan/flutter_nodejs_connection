@@ -38,7 +38,7 @@ class _FormPageState extends State<FormPage> {
         "name": _nameController.text,
         "email": _emailController.text,
         "phone": _phoneController.text,
-        "password": _passwordController.text
+        "password": _passwordController.text,
       });
       print(userdata);
       try {
@@ -50,7 +50,7 @@ class _FormPageState extends State<FormPage> {
       } on DioException catch (e) {
         print(e.response!.data);
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Error registering user')),
+          SnackBar(content: Text('Registration Failed: ${e.response!.data}')),
         );
       }
     }
